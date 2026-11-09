@@ -173,6 +173,10 @@ Private vulnerability reporting is enabled. The tags endpoint returned zero.
 
 The first actual CI run is
 https://github.com/Luqman234/VocalScope/actions/runs/42671570179.
-Its status was queued/running during this verification, not passed. This
-report-only follow-up may trigger a second run; consult GitHub's current status.
+Its initial attempt failed before any job started. The public run page states
+**Internal server error**, correlation ID
+`88937457-98ed-4936-abb5-af29aa15b36b`. The jobs API returned zero jobs; this is
+not a software test result. Repository Actions are enabled with all actions
+allowed. One retry was requested; CI is **not claimed passed**. Consult GitHub
+for the current retry/follow-up status.
 Native hardware acceptance remains separate from CI and is not claimed here.
