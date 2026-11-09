@@ -1,14 +1,15 @@
 # VocalScope 0.5.1 — source publication preparation
 
-**Status: licensing gate cleared on reassessment; fresh validation and publication
-verification are recorded below. No tag or GitHub Release is authorized.**
+**Status: source published to the authorized public repository after licensing,
+security, packaging and regression checks passed. No tag or GitHub Release created.**
 
 ## A. Repository audit
 
 The initial directory was not a Git repository: no branches, tags, remotes,
 tracked files or reachable Git history existed. GitHub authentication succeeded
-outside restricted networking and identified Luqman234. A repository lookup for
-Luqman234/VocalScope returned not found. The maintainer explicitly confirmed
+outside restricted networking and identified Luqman234. An initial lookup returned
+not found; a later create attempt found an existing public initialization commit.
+Its only files were a Python .gitignore and the same full GNU GPLv3 LICENSE. The maintainer explicitly confirmed
 original-code licensing authority, public attribution Luqman234, and permission
 to create that public destination after mandatory checks pass. Configured private
 Git email was neither copied into documentation nor committed.
@@ -58,7 +59,8 @@ Gitleaks was unavailable. Alternative checks reviewed all 148 candidate files,
 paths, sizes and targeted patterns for GitHub/AWS credentials, private keys,
 password/token assignments, credential URLs, private home paths and email
 addresses. No findings remained. This is not an exhaustive secret-scanner
-certification. No Git history exists to scan. Before any future commit/push,
+certification. There was no initial local Git history. The subsequently fetched public
+initialization and all new reachable history were scanned as recorded below. Before any future commit/push,
 repeat scanning on the exact staged tree and every newly reachable commit.
 No known credentials, recordings, dataset archives or SoundFonts are approved
 for publication. Operational logs, inventory and original evidence remain local.
@@ -82,7 +84,7 @@ license inclusion, no private-home paths and no audio/model/SoundFont/raw-log
 assets in either archive. Source distribution includes tests and documentation.
 All packaged source is the tested code. Installed-wheel imports and nine CLI
 help/version checks passed outside the checkout without a display or local media.
-No publication upload, PyPI release, historical dist replacement or version bump
+No package upload, PyPI release, historical dist replacement or version bump
 occurred. Package structural checks do not clear the separate index license gate.
 
 ## G. Fresh validation
@@ -112,17 +114,30 @@ listening, acoustic latency and hardware-unplug acceptance remain unverified.
 
 ## H. Git operations
 
-Initial audit found no repository or shared history. After all gates pass, a
-new main branch is prepared with an explicitly reviewed file list and public
-noreply commit identity. No force push or existing-history rewrite is needed.
-The post-push verification below records actual outcomes.
+Initial local audit found no repository or shared local history. The audited
+142-file source tree was committed as
+`cb5382a5e2a1f4cade6fa316ffb473ebeed2fd59` with the approved public name and a
+GitHub noreply email. The existing public remote initialization commit
+`71fb0bca38c5b86fd6bd084c9a5180b4330c74b4` was fetched, reviewed and preserved.
+Its ignore rules were retained alongside the stricter VocalScope exclusions;
+the LICENSE already matched the verified GNU text.
+
+Merge commit `1221e138b5ed7110ffb0fdf18b5c8bdf386e1810` published the source via
+an ordinary fast-forward push to main. No force push, history rewrite, release
+or tag occurred. All 144 reachable blobs across those three commits were reviewed
+with targeted credential/privacy patterns and path/size checks; no findings.
+The source tree contains no media, samples, weights or dataset annotations.
+This report is subsequently updated in a documentation-only commit; its own SHA
+is available from GitHub history rather than a self-referential embedded hash.
 
 ## I. GitHub
 
-Authorized public destination: https://github.com/Luqman234/VocalScope.
-Remote verification, license detection, CI and commit results are appended after
-successful publication. No release or tag is created. SECURITY.md documents
-GitHub private reporting, with a non-disclosing fallback if unavailable.
+Public repository: https://github.com/Luqman234/VocalScope.
+Default branch: main. The source publication SHA above was independently checked
+through GitHub's commit API. Source modules, tests, GPL/BSD notices and README
+are present. Accurate project topics and description are configured. Actual
+license detection, private security reporting and CI status are recorded in the
+post-push verification section below. No release or tag is authorized.
 
 ## J. Preservation
 
@@ -144,3 +159,20 @@ retain the methodology and measured limitations. No accuracy claims were added.
 
 Stage 3.1 note-release/repetition/transition improvements and Stage 4C expressive
 piano interpretation remain separate future work. Neither was implemented here.
+
+## Post-push verification
+
+GitHub independently returned public visibility, default branch main and source
+merge SHA `1221e138b5ed7110ffb0fdf18b5c8bdf386e1810`. The recursive remote tree
+contains 142 reviewed source/documentation files, none over 1 MiB, and no
+recordings, SoundFonts, weights, dataset archives or raw logs. The rendered
+README contains VocalScope and GPL-3.0-only. GitHub detects the full GPLv3 text
+as `GPL-3.0`; the project explicitly selects **GPL-3.0-only** through SPDX notices
+and packaging metadata. The index independently retains BSD-3-Clause.
+Private vulnerability reporting is enabled. The tags endpoint returned zero.
+
+The first actual CI run is
+https://github.com/Luqman234/VocalScope/actions/runs/42671570179.
+Its status was queued/running during this verification, not passed. This
+report-only follow-up may trigger a second run; consult GitHub's current status.
+Native hardware acceptance remains separate from CI and is not claimed here.
