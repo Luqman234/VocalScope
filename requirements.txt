@@ -1,0 +1,4 @@
+# Install VocalScope plus its test/benchmark tools into the active virtualenv.
+# Dependency bounds are maintained in pyproject.toml (single source of truth).
+-e .[dev]
+

@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vocalscope"
+version = "0.5.1"
+license = "GPL-3.0-only"
+license-files = ["LICENSE", "LICENSES/*.txt", "THIRD_PARTY_NOTICES.md"]
+description = "Inspectable vocal transcription, offline piano synthesis, synchronized playback and scientific benchmarking"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26,<3",
+  "scipy>=1.12,<2",
+  "librosa>=0.11,<0.12",
+  "soundfile>=0.13,<0.14",
+  "matplotlib>=3.10,<4",
+  "pretty_midi>=0.2.11,<0.3",
+]
+
+[project.optional-dependencies]
+# Playback GI/typelibs are system packages; never pip-build PyGObject here.
+playback = []
+synthesis = ["pyfluidsynth>=1.4,<2"]
+dev = ["pytest>=8,<10", "psutil>=7,<8", "build>=1.2", "mir_eval>=0.8,<0.9"]
+benchmark = ["mir_eval>=0.8,<0.9", "psutil>=7,<8"]
+crepe = ["torch>=2.6", "torchaudio>=2.6", "torchcrepe>=0.0.23,<0.1"]
+
+[project.scripts]
+vocalscope = "vocalscope.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+vocalscope = ["resources/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["gui: requires GTK4, libadwaita and a working display", "scientific: runs real DSP", "neural: optional CPU neural smoke tests (no downloads)", "synthesis: optional real SoundFont-backed FluidSynth tests (no downloads)", "audio_output: requires explicitly enabled existing PipeWire audio output"]
+

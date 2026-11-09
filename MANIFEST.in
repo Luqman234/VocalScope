@@ -1,0 +1,21 @@
+include LICENSE THIRD_PARTY_NOTICES.md CONTRIBUTING.md SECURITY.md requirements.txt
+recursive-include LICENSES *.txt
+recursive-include docs *.md
+recursive-include scripts *.py
+recursive-include tests *.py
+recursive-include tests/fixtures *.json
+recursive-include src/vocalscope/resources *.json
+include reports/OPEN_SOURCE_PUBLICATION.md
+prune .publication-local
+prune data
+prune results
+prune reports/stage2
+prune reports/stage3
+prune reports/stage4a
+prune reports/stage4b
+prune reports/stage4b1
+prune reports/gui-memory-budget
+exclude reports/*.json reports/*.txt
+# Start from a strict public report allowlist, including stale egg-info sources.
+prune reports
+include reports/OPEN_SOURCE_PUBLICATION.md

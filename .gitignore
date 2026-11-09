@@ -1,0 +1,32 @@
+# Python and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+.gui-venv/
+*.egg-info/
+build/
+dist/
+.cache/
+model-cache/
+# Credentials and private operational evidence
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.publication-local/
+# User audio, datasets, samples and generated work
+data/
+results/
+captures/
+*.tmp
+*.log
+# Original raw engineering evidence stays local; reviewed summaries are in docs.
+reports/*
+!reports/OPEN_SOURCE_PUBLICATION.md
